@@ -1,4 +1,6 @@
 import type { NextPage } from "next";
+import "antd/dist/antd.min.css";
+import { Radio } from "antd";
 import Image from "next/image";
 import SidebarList from "../components/sidebar-list";
 import Navigation1 from "../components/navigation1";
@@ -31,34 +33,53 @@ const Screen1: NextPage = () => {
           <div className="w-[1728px] overflow-x-auto flex flex-row items-start justify-between pt-3 px-6 pb-0 box-border max-w-full gap-5">
             <div className="flex flex-col items-start justify-start gap-4 max-w-full">
               <TextInputField label="CODE" showTextInput={false} />
-              <TextInputField
-                textInputFieldAlignSelf="unset"
-                textInputFieldWidth="495px"
-                controlElementsFlex="unset"
-                label="メールアドレス"
-                labelTextDecoration="unset"
-                labelHeight="unset"
-                labelColor="#545f71"
-                showTextInput
-              />
+              <div className="w-[495px] flex flex-row items-center justify-start gap-4">
+                <div className="flex flex-row items-center justify-start gap-2">
+                  <div className="w-[138px] relative tracking-[-0.02em] leading-[19px] inline-block shrink-0">
+                    メールアドレス
+                  </div>
+                  <input
+                    className="border-primary border-[1px] border-solid [outline:none] bg-white w-[222px] rounded-md box-border flex flex-row items-start justify-start p-2 font-body-small text-sm text-secondary"
+                    type="text"
+                  />
+                </div>
+                <select className="w-[111px] rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start p-2 font-body-small text-sm text-secondary" />
+              </div>
               <div className="self-stretch flex flex-row items-center justify-start gap-4 max-w-full">
                 <div className="flex-1 flex flex-row items-center justify-start gap-2 max-w-full mq450:flex-wrap">
                   <div className="h-[38px] w-[138px] relative tracking-[-0.02em] leading-[19px] flex items-center shrink-0">
                     アカウント状態
                   </div>
-                  <div className="flex-1 rounded-md bg-lightsteelblue border-lightsteelblue border-[1px] border-solid box-border flex flex-row items-center justify-center p-1.5 gap-1 min-w-[227px] min-h-[38px] max-w-full text-center">
+                  <input
+                    className="border-lightsteelblue border-[1px] border-solid [outline:none] bg-lightsteelblue flex-1 rounded-md box-border flex flex-row items-center justify-center p-1.5 font-body-small text-sm text-primary min-w-[227px] min-h-[38px] max-w-full"
+                    type="text"
+                  />
+                </div>
+                <TextInput
+                  property1="Dropdown"
+                  showTextInput={false}
+                  valueSet="データ有り"
+                  showChevronDownIcon
+                />
+              </div>
+              <div className="self-stretch flex flex-row items-center justify-start gap-4">
+                <div className="flex flex-row items-center justify-start gap-2">
+                  <div className="w-[138px] relative tracking-[-0.02em] leading-[19px] inline-block shrink-0">
+                    ハンドルネーム
+                  </div>
+                  <div className="w-[222px] rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start p-2 gap-1 text-secondary">
                     <Image
-                      className="h-6 w-6 relative overflow-hidden shrink-0 hidden"
+                      className="w-6 relative h-6 overflow-hidden shrink-0 hidden"
                       width={24}
                       height={24}
                       alt=""
                       src="/eye.svg"
                     />
                     <div className="flex-1 relative tracking-[-0.02em] leading-[22px]">
-                      ↓アカウント状態を全てみる↓（クリックして展開）
+                      自由記入
                     </div>
                     <Image
-                      className="h-[22px] w-[22px] relative overflow-hidden shrink-0 hidden"
+                      className="w-[22px] relative h-[22px] overflow-hidden shrink-0 hidden"
                       width={22}
                       height={22}
                       alt=""
@@ -66,31 +87,8 @@ const Screen1: NextPage = () => {
                     />
                   </div>
                 </div>
-                <TextInput
-                  property1="Dropdown"
-                  showTextInput={false}
-                  textInputFlex="unset"
-                  textInputWidth="111px"
-                  valueSet="データ有り"
-                  valueSetFlex="unset"
-                  valueSetHeight="22px"
-                  valueSetWidth="70px"
-                  valueSetDisplay="inline-block"
-                  valueSetColor="#9ba5b7"
-                  valueSetTextDecoration="unset"
-                  showChevronDownIcon
-                />
+                <select className="w-[111px] rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start p-2 font-body-small text-sm text-secondary" />
               </div>
-              <TextInputField
-                textInputFieldAlignSelf="stretch"
-                textInputFieldWidth="unset"
-                controlElementsFlex="unset"
-                label="ハンドルネーム"
-                labelTextDecoration="unset"
-                labelHeight="unset"
-                labelColor="#545f71"
-                showTextInput
-              />
               <div className="flex flex-row items-center justify-start gap-2 max-w-full mq925:flex-wrap">
                 <div className="w-[139px] relative tracking-[-0.02em] leading-[19px] inline-block shrink-0">
                   性別
@@ -118,28 +116,36 @@ const Screen1: NextPage = () => {
                   <div className="relative tracking-[-0.02em] leading-[19px] inline-block min-w-[29px]">
                     女性
                   </div>
-                  <Image
-                    className="h-6 w-6 relative rounded-10xs"
-                    width={24}
-                    height={24}
-                    alt=""
-                    src="/radio-button1.svg"
-                  />
+                  <Radio className="h-6 w-6 relative" />
                   <div className="relative tracking-[-0.02em] leading-[19px] text-lightcoral-200">
                     その他
                   </div>
                 </div>
               </div>
-              <TextInputField
-                textInputFieldAlignSelf="stretch"
-                textInputFieldWidth="unset"
-                controlElementsFlex="1"
-                label="地域"
-                labelTextDecoration="unset"
-                labelHeight="unset"
-                labelColor="#545f71"
-                showTextInput={false}
-              />
+              <div className="self-stretch flex flex-row items-center justify-start gap-4">
+                <div className="flex-1 flex flex-row items-center justify-start gap-2">
+                  <div className="w-[138px] relative tracking-[-0.02em] leading-[19px] inline-block shrink-0">
+                    地域
+                  </div>
+                  <select className="flex-1 rounded-md bg-white border-primary border-[1px] border-solid flex flex-row items-start justify-start p-2 font-body-small text-sm text-secondary" />
+                </div>
+                {showTextInput && (
+                  <TextInput
+                    property1="Dropdown"
+                    showTextInput={false}
+                    textInputFlex="unset"
+                    textInputWidth="111px"
+                    valueSet="データ有り"
+                    valueSetFlex="unset"
+                    valueSetHeight="22px"
+                    valueSetWidth="70px"
+                    valueSetDisplay="inline-block"
+                    valueSetColor="#9ba5b7"
+                    valueSetTextDecoration="unset"
+                    showChevronDownIcon
+                  />
+                )}
+              </div>
               <div className="self-stretch flex flex-row items-center justify-start gap-4 max-w-full mq450:flex-wrap">
                 <div className="w-[368px] flex flex-row items-center justify-start gap-2 max-w-full mq450:flex-wrap">
                   <div className="w-[138px] flex flex-row items-center justify-start">
@@ -201,25 +207,7 @@ const Screen1: NextPage = () => {
                     </div>
                   </div>
                 </div>
-                <div className="flex-1 rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start py-1.5 pl-2 pr-[5px] gap-1 min-w-[72px] min-h-[38px]">
-                  <Image
-                    className="h-6 w-6 relative overflow-hidden shrink-0 hidden"
-                    width={24}
-                    height={24}
-                    alt=""
-                    src="/eye.svg"
-                  />
-                  <div className="flex-1 relative tracking-[-0.02em] leading-[22px]">
-                    以上
-                  </div>
-                  <Image
-                    className="h-[22px] w-[22px] relative overflow-hidden shrink-0"
-                    width={22}
-                    height={22}
-                    alt=""
-                    src="/chevrondown.svg"
-                  />
-                </div>
+                <select className="flex-1 rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start py-1.5 pl-2 pr-[5px] font-body-small text-sm text-primary min-w-[72px] min-h-[38px]" />
               </div>
               <div className="self-stretch flex flex-row items-center justify-start gap-4 max-w-full text-center text-secondary mq450:flex-wrap">
                 <div className="w-[368px] flex flex-row items-center justify-start gap-2 max-w-full mq450:flex-wrap">
@@ -278,25 +266,7 @@ const Screen1: NextPage = () => {
                     </div>
                   </div>
                 </div>
-                <div className="flex-1 rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start py-1.5 pl-2 pr-[5px] gap-1 min-w-[72px] min-h-[38px] text-left text-primary">
-                  <Image
-                    className="h-6 w-6 relative overflow-hidden shrink-0 hidden"
-                    width={24}
-                    height={24}
-                    alt=""
-                    src="/eye.svg"
-                  />
-                  <div className="flex-1 relative tracking-[-0.02em] leading-[22px]">
-                    以下
-                  </div>
-                  <Image
-                    className="h-[22px] w-[22px] relative overflow-hidden shrink-0"
-                    width={22}
-                    height={22}
-                    alt=""
-                    src="/chevrondown.svg"
-                  />
-                </div>
+                <select className="flex-1 rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start py-1.5 pl-2 pr-[5px] font-body-small text-sm text-primary min-w-[72px] min-h-[38px]" />
               </div>
               <div className="self-stretch flex flex-row items-center justify-start gap-4 max-w-full mq450:flex-wrap">
                 <div className="flex-1 flex flex-row items-center justify-start gap-2 min-w-[239px] max-w-full mq450:flex-wrap">
@@ -324,20 +294,7 @@ const Screen1: NextPage = () => {
                     />
                   </div>
                 </div>
-                <TextInput
-                  property1="Dropdown"
-                  showTextInput
-                  textInputFlex="unset"
-                  textInputWidth="111px"
-                  valueSet="以上"
-                  valueSetFlex="1"
-                  valueSetHeight="unset"
-                  valueSetWidth="unset"
-                  valueSetDisplay="unset"
-                  valueSetColor="#545f71"
-                  valueSetTextDecoration="unset"
-                  showChevronDownIcon
-                />
+                <select className="w-[111px] rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start p-2 font-body-small text-sm text-primary" />
               </div>
               <div className="self-stretch flex flex-row items-center justify-start gap-4 max-w-full mq450:flex-wrap">
                 <div className="flex-1 flex flex-row items-center justify-start gap-2 min-w-[239px] max-w-full mq450:flex-wrap">
@@ -365,20 +322,7 @@ const Screen1: NextPage = () => {
                     />
                   </div>
                 </div>
-                <TextInput
-                  property1="Dropdown"
-                  showTextInput
-                  textInputFlex="unset"
-                  textInputWidth="111px"
-                  valueSet="以下"
-                  valueSetFlex="1"
-                  valueSetHeight="unset"
-                  valueSetWidth="unset"
-                  valueSetDisplay="unset"
-                  valueSetColor="#545f71"
-                  valueSetTextDecoration="unset"
-                  showChevronDownIcon
-                />
+                <select className="w-[111px] rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start p-2 font-body-small text-sm text-primary" />
               </div>
               <TextInputField
                 textInputFieldAlignSelf="stretch"
@@ -400,16 +344,18 @@ const Screen1: NextPage = () => {
                 labelColor="#545f71"
                 showTextInput
               />
-              <TextInputField
-                textInputFieldAlignSelf="stretch"
-                textInputFieldWidth="unset"
-                controlElementsFlex="unset"
-                label="広告CODE"
-                labelTextDecoration="unset"
-                labelHeight="unset"
-                labelColor="#545f71"
-                showTextInput
-              />
+              <div className="self-stretch flex flex-row items-center justify-start gap-4">
+                <div className="flex flex-row items-center justify-start gap-2">
+                  <div className="w-[138px] relative tracking-[-0.02em] leading-[19px] inline-block shrink-0">
+                    広告CODE
+                  </div>
+                  <input
+                    className="border-primary border-[1px] border-solid [outline:none] bg-white w-[222px] rounded-md box-border flex flex-row items-start justify-start p-2 font-body-small text-sm text-secondary"
+                    type="text"
+                  />
+                </div>
+                <select className="w-[111px] rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start p-2 font-body-small text-sm text-secondary" />
+              </div>
               <div className="flex flex-row items-center justify-start gap-2 max-w-full text-aliceblue mq925:flex-wrap">
                 <div className="w-[139px] relative tracking-[-0.02em] leading-[19px] inline-block shrink-0">
                   性別
@@ -441,15 +387,152 @@ const Screen1: NextPage = () => {
               </div>
             </div>
             <div className="flex flex-col items-start justify-start gap-4 max-w-full">
-              <TextInputField
-                textInputFieldAlignSelf="stretch"
-                textInputFieldWidth="unset"
-                controlElementsFlex="unset"
-                labelTextDecoration="unset"
-                labelHeight="unset"
-                labelColor="#545f71"
-                showTextInput
-              />
+              <div className="self-stretch flex flex-row items-center justify-start gap-4">
+                <div className="flex flex-row items-center justify-start gap-2">
+                  <div className="w-[138px] relative tracking-[-0.02em] leading-[19px] inline-block shrink-0">
+                    <p className="m-0">現在ポイント</p>
+                    <p className="m-0">（合計）</p>
+                  </div>
+                  <input
+                    className="border-primary border-[1px] border-solid [outline:none] bg-white w-[222px] rounded-md box-border flex flex-row items-start justify-start p-2 font-body-small text-sm text-secondary"
+                    type="text"
+                  />
+                </div>
+                <div className="w-[111px] rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start p-2 gap-1">
+                  <Image
+                    className="w-6 relative h-6 overflow-hidden shrink-0 hidden"
+                    width={24}
+                    height={24}
+                    alt=""
+                    src="/eye.svg"
+                  />
+                  <input
+                    className="[border:none] [outline:none] font-body-small text-sm bg-[transparent] flex-1 relative tracking-[-0.02em] leading-[22px] text-primary text-left"
+                    type="text"
+                  />
+                  <Image
+                    className="h-[22px] w-[22px] relative overflow-hidden shrink-0"
+                    width={22}
+                    height={22}
+                    alt=""
+                    src="/chevrondown.svg"
+                  />
+                </div>
+              </div>
+              <div className="self-stretch flex flex-row items-center justify-start gap-4">
+                <div className="flex flex-row items-center justify-start gap-2">
+                  <div className="h-[19px] w-[138px] relative tracking-[-0.02em] leading-[19px] inline-block shrink-0" />
+                  <input
+                    className="border-primary border-[1px] border-solid [outline:none] bg-white w-[222px] rounded-md box-border flex flex-row items-start justify-start p-2 font-body-small text-sm text-secondary"
+                    type="text"
+                  />
+                </div>
+                <select className="w-[111px] rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start p-2 font-body-small text-sm text-primary" />
+              </div>
+              <div className="self-stretch flex flex-row items-center justify-start gap-4">
+                <div className="flex flex-row items-center justify-start gap-2">
+                  <div className="w-[138px] relative tracking-[-0.02em] leading-[19px] inline-block shrink-0">
+                    <p className="m-0">現在ポイント</p>
+                    <p className="m-0">（通常のみ）</p>
+                  </div>
+                  <input
+                    className="border-primary border-[1px] border-solid [outline:none] bg-white w-[222px] rounded-md box-border flex flex-row items-start justify-start p-2 font-body-small text-sm text-secondary"
+                    type="text"
+                  />
+                </div>
+                <select className="w-[111px] rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start p-2 font-body-small text-sm text-primary" />
+              </div>
+              <div className="self-stretch flex flex-row items-center justify-start gap-4">
+                <div className="flex flex-row items-center justify-start gap-2">
+                  <div className="h-[19px] w-[138px] relative tracking-[-0.02em] leading-[19px] inline-block shrink-0" />
+                  <input
+                    className="border-primary border-[1px] border-solid [outline:none] bg-white w-[222px] rounded-md box-border flex flex-row items-start justify-start p-2 font-body-small text-sm text-secondary"
+                    type="text"
+                  />
+                </div>
+                <select className="w-[111px] rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start p-2 font-body-small text-sm text-primary" />
+              </div>
+              <div className="self-stretch flex flex-row items-center justify-start gap-4">
+                <div className="flex flex-row items-center justify-start gap-2">
+                  <div className="w-[138px] relative tracking-[-0.02em] leading-[19px] inline-block shrink-0">
+                    <p className="m-0">現在ポイント</p>
+                    <p className="m-0">（ボーナスのみ）</p>
+                  </div>
+                  <input
+                    className="border-primary border-[1px] border-solid [outline:none] bg-white w-[222px] rounded-md box-border flex flex-row items-start justify-start p-2 font-body-small text-sm text-secondary"
+                    type="text"
+                  />
+                </div>
+                <select className="w-[111px] rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start p-2 font-body-small text-sm text-primary" />
+              </div>
+              <div className="self-stretch flex flex-row items-center justify-start gap-4">
+                <div className="flex flex-row items-center justify-start gap-2">
+                  <div className="h-[19px] w-[138px] relative tracking-[-0.02em] leading-[19px] inline-block shrink-0" />
+                  <input
+                    className="border-primary border-[1px] border-solid [outline:none] bg-white w-[222px] rounded-md box-border flex flex-row items-start justify-start p-2 font-body-small text-sm text-secondary"
+                    type="text"
+                  />
+                </div>
+                <select className="w-[111px] rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start p-2 font-body-small text-sm text-primary" />
+              </div>
+              <div className="self-stretch flex flex-row items-center justify-start gap-4">
+                <div className="flex flex-row items-center justify-start gap-2">
+                  <div className="w-[138px] relative tracking-[-0.02em] leading-[19px] inline-block shrink-0">
+                    累計購入ポイント
+                  </div>
+                  <input
+                    className="border-primary border-[1px] border-solid [outline:none] bg-white w-[222px] rounded-md box-border flex flex-row items-start justify-start p-2 font-body-small text-sm text-secondary"
+                    type="text"
+                  />
+                </div>
+                <select className="w-[111px] rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start p-2 font-body-small text-sm text-primary" />
+              </div>
+              <div className="self-stretch flex flex-row items-center justify-start gap-4">
+                <div className="flex flex-row items-center justify-start gap-2">
+                  <div className="h-[19px] w-[138px] relative tracking-[-0.02em] leading-[19px] inline-block shrink-0" />
+                  <input
+                    className="border-primary border-[1px] border-solid [outline:none] bg-white w-[222px] rounded-md box-border flex flex-row items-start justify-start p-2 font-body-small text-sm text-secondary"
+                    type="text"
+                  />
+                </div>
+                <select className="w-[111px] rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start p-2 font-body-small text-sm text-primary" />
+              </div>
+              <div className="self-stretch flex flex-row items-center justify-start gap-4 text-aliceblue">
+                <div className="flex-1 flex flex-row items-center justify-start gap-2">
+                  <div className="w-[138px] relative tracking-[-0.02em] leading-[19px] inline-block shrink-0">
+                    アカウント状態
+                  </div>
+                  <select className="flex-1 rounded-md bg-white border-primary border-[1px] border-solid flex flex-row items-start justify-start p-2 font-body-small text-sm text-secondary" />
+                </div>
+                {showTextInput && (
+                  <TextInput
+                    property1="Dropdown"
+                    showTextInput={false}
+                    textInputFlex="unset"
+                    textInputWidth="111px"
+                    valueSet="データ有り"
+                    valueSetFlex="unset"
+                    valueSetHeight="22px"
+                    valueSetWidth="70px"
+                    valueSetDisplay="inline-block"
+                    valueSetColor="#9ba5b7"
+                    valueSetTextDecoration="unset"
+                    showChevronDownIcon
+                  />
+                )}
+              </div>
+              <div className="self-stretch flex flex-row items-center justify-start gap-4">
+                <div className="flex flex-row items-center justify-start gap-2">
+                  <div className="w-[138px] relative tracking-[-0.02em] leading-[19px] inline-block shrink-0">
+                    累計購入金額（税込）
+                  </div>
+                  <input
+                    className="border-primary border-[1px] border-solid [outline:none] bg-white w-[222px] rounded-md box-border flex flex-row items-start justify-start p-2 font-body-small text-sm text-secondary"
+                    type="text"
+                  />
+                </div>
+                <select className="w-[111px] rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start p-2 font-body-small text-sm text-primary" />
+              </div>
               <TextInputField
                 textInputFieldAlignSelf="stretch"
                 textInputFieldWidth="unset"
@@ -459,100 +542,30 @@ const Screen1: NextPage = () => {
                 labelColor="#545f71"
                 showTextInput
               />
-              <TextInputField
-                textInputFieldAlignSelf="stretch"
-                textInputFieldWidth="unset"
-                controlElementsFlex="unset"
-                labelTextDecoration="unset"
-                labelHeight="unset"
-                labelColor="#545f71"
-                showTextInput
-              />
-              <TextInputField
-                textInputFieldAlignSelf="stretch"
-                textInputFieldWidth="unset"
-                controlElementsFlex="unset"
-                labelTextDecoration="unset"
-                labelHeight="19px"
-                labelColor="#545f71"
-                showTextInput
-              />
-              <TextInputField
-                textInputFieldAlignSelf="stretch"
-                textInputFieldWidth="unset"
-                controlElementsFlex="unset"
-                labelTextDecoration="unset"
-                labelHeight="unset"
-                labelColor="#545f71"
-                showTextInput
-              />
-              <TextInputField
-                textInputFieldAlignSelf="stretch"
-                textInputFieldWidth="unset"
-                controlElementsFlex="unset"
-                labelTextDecoration="unset"
-                labelHeight="19px"
-                labelColor="#545f71"
-                showTextInput
-              />
-              <TextInputField
-                textInputFieldAlignSelf="stretch"
-                textInputFieldWidth="unset"
-                controlElementsFlex="unset"
-                label="累計購入ポイント"
-                labelTextDecoration="unset"
-                labelHeight="unset"
-                labelColor="#545f71"
-                showTextInput
-              />
-              <TextInputField
-                textInputFieldAlignSelf="stretch"
-                textInputFieldWidth="unset"
-                controlElementsFlex="unset"
-                labelTextDecoration="unset"
-                labelHeight="19px"
-                labelColor="#545f71"
-                showTextInput
-              />
-              <TextInputField
-                textInputFieldAlignSelf="stretch"
-                textInputFieldWidth="unset"
-                controlElementsFlex="1"
-                label="アカウント状態"
-                labelTextDecoration="unset"
-                labelHeight="unset"
-                labelColor="#eef2ff"
-                showTextInput={false}
-              />
-              <TextInputField
-                textInputFieldAlignSelf="stretch"
-                textInputFieldWidth="unset"
-                controlElementsFlex="unset"
-                label="累計購入金額（税込）"
-                labelTextDecoration="unset"
-                labelHeight="unset"
-                labelColor="#545f71"
-                showTextInput
-              />
-              <TextInputField
-                textInputFieldAlignSelf="stretch"
-                textInputFieldWidth="unset"
-                controlElementsFlex="unset"
-                labelTextDecoration="unset"
-                labelHeight="19px"
-                labelColor="#545f71"
-                showTextInput
-              />
-              <TextInputField
-                textInputFieldAlignSelf="stretch"
-                textInputFieldWidth="unset"
-                controlElementsFlex="1"
-                label="アカウント状態"
-                labelTextDecoration="unset"
-                labelHeight="unset"
-                labelColor="#eef2ff"
-                showTextInput={false}
-              />
+              <div className="self-stretch flex flex-row items-center justify-start gap-4 text-aliceblue">
+                <div className="flex-1 flex flex-row items-center justify-start gap-2">
+                  <div className="w-[138px] relative tracking-[-0.02em] leading-[19px] inline-block shrink-0">
+                    アカウント状態
+                  </div>
+                  <select className="flex-1 rounded-md bg-white border-primary border-[1px] border-solid flex flex-row items-start justify-start p-2 font-body-small text-sm text-secondary" />
+                </div>
+                {showTextInput && (
+                  <TextInput
+                    property1="Dropdown"
+                    showTextInput={false}
+                    textInputFlex="unset"
+                    textInputWidth="111px"
+                    valueSet="データ有り"
+                    valueSetFlex="unset"
+                    valueSetHeight="22px"
+                    valueSetWidth="70px"
+                    valueSetDisplay="inline-block"
+                    valueSetColor="#9ba5b7"
+                    valueSetTextDecoration="unset"
+                    showChevronDownIcon
+                  />
+                )}
+              </div>
             </div>
             <div className="flex flex-col items-start justify-start gap-4 max-w-full">
               <div className="self-stretch flex flex-row items-center justify-start gap-4 max-w-full mq450:flex-wrap">
@@ -616,25 +629,7 @@ const Screen1: NextPage = () => {
                     </div>
                   </nav>
                 </div>
-                <div className="w-[111px] rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start py-1.5 pl-2 pr-[5px] gap-1">
-                  <Image
-                    className="h-6 w-6 relative overflow-hidden shrink-0 hidden"
-                    width={24}
-                    height={24}
-                    alt=""
-                    src="/eye.svg"
-                  />
-                  <div className="flex-1 relative tracking-[-0.02em] leading-[22px]">
-                    以上
-                  </div>
-                  <Image
-                    className="h-[22px] w-[22px] relative overflow-hidden shrink-0"
-                    width={22}
-                    height={22}
-                    alt=""
-                    src="/chevrondown.svg"
-                  />
-                </div>
+                <select className="w-[111px] rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start py-1.5 px-2 font-body-small text-sm text-primary" />
               </div>
               <div className="self-stretch flex flex-row items-center justify-start gap-4 max-w-full text-center text-secondary mq450:flex-wrap">
                 <div className="flex-1 flex flex-row items-center justify-start gap-2 min-w-[239px] max-w-full mq450:flex-wrap">
@@ -693,25 +688,7 @@ const Screen1: NextPage = () => {
                     </div>
                   </div>
                 </div>
-                <div className="w-[111px] rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start py-1.5 pl-2 pr-[5px] gap-1 text-left text-primary">
-                  <Image
-                    className="h-6 w-6 relative overflow-hidden shrink-0 hidden"
-                    width={24}
-                    height={24}
-                    alt=""
-                    src="/eye.svg"
-                  />
-                  <div className="flex-1 relative tracking-[-0.02em] leading-[22px]">
-                    以下
-                  </div>
-                  <Image
-                    className="h-[22px] w-[22px] relative overflow-hidden shrink-0"
-                    width={22}
-                    height={22}
-                    alt=""
-                    src="/chevrondown.svg"
-                  />
-                </div>
+                <select className="w-[111px] rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start py-1.5 px-2 font-body-small text-sm text-primary" />
               </div>
               <div className="self-stretch flex flex-row items-center justify-start gap-4 max-w-full mq450:flex-wrap">
                 <div className="flex-1 flex flex-row items-center justify-start gap-2 min-w-[239px] max-w-full mq450:flex-wrap">
@@ -739,61 +716,14 @@ const Screen1: NextPage = () => {
                     />
                   </div>
                 </div>
-                <TextInput
-                  property1="Dropdown"
-                  showTextInput
-                  textInputFlex="unset"
-                  textInputWidth="111px"
-                  valueSet="以上"
-                  valueSetFlex="1"
-                  valueSetHeight="unset"
-                  valueSetWidth="unset"
-                  valueSetDisplay="unset"
-                  valueSetColor="#545f71"
-                  valueSetTextDecoration="unset"
-                  showChevronDownIcon
-                />
+                <select className="w-[111px] rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start p-2 font-body-small text-sm text-primary" />
               </div>
               <div className="self-stretch flex flex-row items-center justify-start gap-4 max-w-full mq450:flex-wrap">
                 <div className="flex-1 flex flex-row items-center justify-start gap-2 min-w-[239px] max-w-full mq450:flex-wrap">
                   <div className="h-[19px] w-[139px] relative tracking-[-0.02em] leading-[19px] inline-block shrink-0" />
-                  <div className="flex-1 rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start py-1.5 pl-2 pr-1 gap-1 min-w-[144px] min-h-[38px] text-secondary">
-                    <Image
-                      className="h-6 w-6 relative overflow-hidden shrink-0 hidden"
-                      width={24}
-                      height={24}
-                      alt=""
-                      src="/eye.svg"
-                    />
-                    <div className="flex-1 relative tracking-[-0.02em] leading-[22px]">
-                      数字入力
-                    </div>
-                    <div className="relative tracking-[-0.02em] leading-[22px] text-primary text-right inline-block min-w-[43px]">
-                      日経過
-                    </div>
-                    <Image
-                      className="h-[22px] w-[22px] relative overflow-hidden shrink-0 hidden"
-                      width={22}
-                      height={22}
-                      alt=""
-                      src="/chevrondown.svg"
-                    />
-                  </div>
+                  <select className="flex-1 rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start py-1.5 pl-2 pr-1 font-body-small text-sm text-secondary min-w-[144px] min-h-[38px]" />
                 </div>
-                <TextInput
-                  property1="Dropdown"
-                  showTextInput
-                  textInputFlex="unset"
-                  textInputWidth="111px"
-                  valueSet="以下"
-                  valueSetFlex="1"
-                  valueSetHeight="unset"
-                  valueSetWidth="unset"
-                  valueSetDisplay="unset"
-                  valueSetColor="#545f71"
-                  valueSetTextDecoration="unset"
-                  showChevronDownIcon
-                />
+                <select className="w-[111px] rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start p-2 font-body-small text-sm text-primary" />
               </div>
               <div className="self-stretch flex flex-row items-center justify-start gap-4 max-w-full mq450:flex-wrap">
                 <div className="flex-1 flex flex-row items-center justify-start gap-2 min-w-[239px] max-w-full mq450:flex-wrap">
@@ -856,25 +786,7 @@ const Screen1: NextPage = () => {
                     </div>
                   </div>
                 </div>
-                <div className="w-[111px] rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start py-1.5 pl-2 pr-[5px] gap-1">
-                  <Image
-                    className="h-6 w-6 relative overflow-hidden shrink-0 hidden"
-                    width={24}
-                    height={24}
-                    alt=""
-                    src="/eye.svg"
-                  />
-                  <div className="flex-1 relative tracking-[-0.02em] leading-[22px]">
-                    以上
-                  </div>
-                  <Image
-                    className="h-[22px] w-[22px] relative overflow-hidden shrink-0"
-                    width={22}
-                    height={22}
-                    alt=""
-                    src="/chevrondown.svg"
-                  />
-                </div>
+                <select className="w-[111px] rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start py-1.5 px-2 font-body-small text-sm text-primary" />
               </div>
               <div className="self-stretch flex flex-row items-center justify-start gap-4 max-w-full text-center text-secondary mq450:flex-wrap">
                 <div className="flex-1 flex flex-row items-center justify-start gap-2 min-w-[239px] max-w-full mq450:flex-wrap">
@@ -933,25 +845,7 @@ const Screen1: NextPage = () => {
                     </div>
                   </div>
                 </div>
-                <div className="w-[111px] rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start py-1.5 pl-2 pr-[5px] gap-1 text-left text-primary">
-                  <Image
-                    className="h-6 w-6 relative overflow-hidden shrink-0 hidden"
-                    width={24}
-                    height={24}
-                    alt=""
-                    src="/eye.svg"
-                  />
-                  <div className="flex-1 relative tracking-[-0.02em] leading-[22px]">
-                    以下
-                  </div>
-                  <Image
-                    className="h-[22px] w-[22px] relative overflow-hidden shrink-0"
-                    width={22}
-                    height={22}
-                    alt=""
-                    src="/chevrondown.svg"
-                  />
-                </div>
+                <select className="w-[111px] rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start py-1.5 px-2 font-body-small text-sm text-primary" />
               </div>
               <div className="self-stretch flex flex-row items-center justify-start gap-4 max-w-full mq450:flex-wrap">
                 <div className="flex-1 flex flex-row items-center justify-start gap-2 min-w-[239px] max-w-full mq450:flex-wrap">
@@ -979,20 +873,7 @@ const Screen1: NextPage = () => {
                     />
                   </div>
                 </div>
-                <TextInput
-                  property1="Dropdown"
-                  showTextInput
-                  textInputFlex="unset"
-                  textInputWidth="111px"
-                  valueSet="以上"
-                  valueSetFlex="1"
-                  valueSetHeight="unset"
-                  valueSetWidth="unset"
-                  valueSetDisplay="unset"
-                  valueSetColor="#545f71"
-                  valueSetTextDecoration="unset"
-                  showChevronDownIcon
-                />
+                <select className="w-[111px] rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start p-2 font-body-small text-sm text-primary" />
               </div>
               <div className="self-stretch flex flex-row items-center justify-start gap-4 max-w-full mq450:flex-wrap">
                 <div className="flex-1 flex flex-row items-center justify-start gap-2 min-w-[239px] max-w-full mq450:flex-wrap">
@@ -1020,20 +901,7 @@ const Screen1: NextPage = () => {
                     />
                   </div>
                 </div>
-                <TextInput
-                  property1="Dropdown"
-                  showTextInput
-                  textInputFlex="unset"
-                  textInputWidth="111px"
-                  valueSet="以下"
-                  valueSetFlex="1"
-                  valueSetHeight="unset"
-                  valueSetWidth="unset"
-                  valueSetDisplay="unset"
-                  valueSetColor="#545f71"
-                  valueSetTextDecoration="unset"
-                  showChevronDownIcon
-                />
+                <select className="w-[111px] rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start p-2 font-body-small text-sm text-primary" />
               </div>
               <div className="self-stretch flex flex-row items-center justify-start gap-4 max-w-full mq450:flex-wrap">
                 <div className="flex-1 flex flex-row items-center justify-start gap-2 min-w-[239px] max-w-full mq450:flex-wrap">
@@ -1096,25 +964,7 @@ const Screen1: NextPage = () => {
                     </div>
                   </div>
                 </div>
-                <div className="w-[111px] rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start py-1.5 pl-2 pr-[5px] gap-1">
-                  <Image
-                    className="h-6 w-6 relative overflow-hidden shrink-0 hidden"
-                    width={24}
-                    height={24}
-                    alt=""
-                    src="/eye.svg"
-                  />
-                  <div className="flex-1 relative tracking-[-0.02em] leading-[22px]">
-                    以上
-                  </div>
-                  <Image
-                    className="h-[22px] w-[22px] relative overflow-hidden shrink-0"
-                    width={22}
-                    height={22}
-                    alt=""
-                    src="/chevrondown.svg"
-                  />
-                </div>
+                <select className="w-[111px] rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start py-1.5 px-2 font-body-small text-sm text-primary" />
               </div>
               <div className="self-stretch flex flex-row items-center justify-start gap-4 max-w-full text-center text-secondary mq450:flex-wrap">
                 <div className="flex-1 flex flex-row items-center justify-start gap-2 min-w-[239px] max-w-full mq450:flex-wrap">
@@ -1173,25 +1023,7 @@ const Screen1: NextPage = () => {
                     </div>
                   </div>
                 </div>
-                <div className="w-[111px] rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start py-1.5 pl-2 pr-[5px] gap-1 text-left text-primary">
-                  <Image
-                    className="h-6 w-6 relative overflow-hidden shrink-0 hidden"
-                    width={24}
-                    height={24}
-                    alt=""
-                    src="/eye.svg"
-                  />
-                  <div className="flex-1 relative tracking-[-0.02em] leading-[22px]">
-                    以下
-                  </div>
-                  <Image
-                    className="h-[22px] w-[22px] relative overflow-hidden shrink-0"
-                    width={22}
-                    height={22}
-                    alt=""
-                    src="/chevrondown.svg"
-                  />
-                </div>
+                <select className="w-[111px] rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start py-1.5 px-2 font-body-small text-sm text-primary" />
               </div>
               <div className="self-stretch flex flex-row items-center justify-start gap-4 max-w-full mq450:flex-wrap">
                 <div className="flex-1 flex flex-row items-center justify-start gap-2 min-w-[239px] max-w-full mq450:flex-wrap">
@@ -1219,25 +1051,12 @@ const Screen1: NextPage = () => {
                     />
                   </div>
                 </div>
-                <TextInput
-                  property1="Dropdown"
-                  showTextInput
-                  textInputFlex="unset"
-                  textInputWidth="111px"
-                  valueSet="以上"
-                  valueSetFlex="1"
-                  valueSetHeight="unset"
-                  valueSetWidth="unset"
-                  valueSetDisplay="unset"
-                  valueSetColor="#545f71"
-                  valueSetTextDecoration="unset"
-                  showChevronDownIcon
-                />
+                <select className="w-[111px] rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start p-2 font-body-small text-sm text-primary" />
               </div>
               <div className="self-stretch flex flex-row items-center justify-start gap-4 max-w-full mq450:flex-wrap">
                 <div className="flex-1 flex flex-row items-center justify-start gap-2 min-w-[239px] max-w-full mq450:flex-wrap">
                   <div className="h-[19px] w-[139px] relative tracking-[-0.02em] leading-[19px] inline-block shrink-0" />
-                  <div className="flex-1 rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start py-1.5 pl-2 pr-1 gap-1 min-w-[144px] min-h-[38px] text-secondary">
+                  <div className="flex-1 rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start py-1.5 pl-2 pr-1 gap-1 min-w-[144px] min-h-[38px] text-right">
                     <Image
                       className="h-6 w-6 relative overflow-hidden shrink-0 hidden"
                       width={24}
@@ -1245,10 +1064,11 @@ const Screen1: NextPage = () => {
                       alt=""
                       src="/eye.svg"
                     />
-                    <div className="flex-1 relative tracking-[-0.02em] leading-[22px]">
-                      数字入力
-                    </div>
-                    <div className="relative tracking-[-0.02em] leading-[22px] text-primary text-right inline-block min-w-[43px]">
+                    <input
+                      className="[border:none] [outline:none] font-body-small text-sm bg-[transparent] flex-1 relative tracking-[-0.02em] leading-[22px] text-secondary text-left"
+                      type="text"
+                    />
+                    <div className="relative tracking-[-0.02em] leading-[22px] inline-block min-w-[43px]">
                       日経過
                     </div>
                     <Image
@@ -1260,26 +1080,13 @@ const Screen1: NextPage = () => {
                     />
                   </div>
                 </div>
-                <TextInput
-                  property1="Dropdown"
-                  showTextInput
-                  textInputFlex="unset"
-                  textInputWidth="111px"
-                  valueSet="以下"
-                  valueSetFlex="1"
-                  valueSetHeight="unset"
-                  valueSetWidth="unset"
-                  valueSetDisplay="unset"
-                  valueSetColor="#545f71"
-                  valueSetTextDecoration="unset"
-                  showChevronDownIcon
-                />
+                <select className="w-[111px] rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start p-2 font-body-small text-sm text-primary" />
               </div>
             </div>
           </div>
           <div className="flex flex-row items-start justify-end py-0 px-6 box-border max-w-full">
             <div className="flex-1 flex flex-row items-start justify-start gap-4 max-w-full mq925:flex-wrap">
-              <div className="flex-1 rounded-md bg-white border-primary border-[1px] border-solid box-border overflow-hidden flex flex-row items-start justify-start py-[11px] px-[18px] gap-2.5 min-w-[115px] min-h-[48px]">
+              <button className="cursor-pointer border-primary border-[1px] border-solid py-[11px] px-[18px] bg-white flex-1 rounded-md box-border overflow-hidden flex flex-row items-start justify-start gap-2.5 min-w-[115px] min-h-[48px]">
                 <Image
                   className="h-6 w-6 relative overflow-hidden shrink-0 hidden"
                   width={24}
@@ -1287,11 +1094,11 @@ const Screen1: NextPage = () => {
                   alt=""
                   src="/pluscircle.svg"
                 />
-                <div className="relative tracking-[-0.02em] leading-[22px]">
+                <div className="relative text-sm tracking-[-0.02em] leading-[22px] font-body-small text-primary text-left">
                   もっと検索条件を見る
                 </div>
-              </div>
-              <div className="flex-[0.6043] rounded-md bg-white border-primary border-[1px] border-solid box-border overflow-hidden flex flex-row items-start justify-start py-[11px] pl-[47px] pr-11 gap-2.5 min-w-[115px] min-h-[48px] mq450:flex-1">
+              </button>
+              <button className="cursor-pointer border-primary border-[1px] border-solid py-[11px] pl-[47px] pr-11 bg-white flex-[0.6043] rounded-md box-border overflow-hidden flex flex-row items-start justify-start gap-2.5 min-w-[115px] min-h-[48px] mq450:flex-1">
                 <Image
                   className="h-6 w-6 relative overflow-hidden shrink-0 hidden"
                   width={24}
@@ -1299,11 +1106,11 @@ const Screen1: NextPage = () => {
                   alt=""
                   src="/pluscircle1.svg"
                 />
-                <div className="relative tracking-[-0.02em] leading-[22px]">
+                <div className="relative text-sm tracking-[-0.02em] leading-[22px] font-body-small text-primary text-left">
                   条件をクリア
                 </div>
-              </div>
-              <div className="rounded-md bg-primary overflow-hidden flex flex-row items-start justify-start py-3 px-4 gap-2.5 text-white">
+              </button>
+              <button className="cursor-pointer [border:none] py-3 px-4 bg-primary rounded-md overflow-hidden flex flex-row items-start justify-start gap-2.5">
                 <Image
                   className="h-6 w-6 relative overflow-hidden shrink-0 hidden"
                   width={24}
@@ -1319,11 +1126,11 @@ const Screen1: NextPage = () => {
                   src="/search.svg"
                 />
                 <div className="flex flex-col items-start justify-start pt-px px-0 pb-0">
-                  <div className="relative tracking-[-0.02em] leading-[22px] font-semibold">
+                  <div className="relative text-sm tracking-[-0.02em] leading-[22px] font-semibold font-body-small text-white text-left">
                     この条件で検索
                   </div>
                 </div>
-              </div>
+              </button>
             </div>
           </div>
         </section>

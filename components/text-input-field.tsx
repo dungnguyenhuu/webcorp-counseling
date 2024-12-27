@@ -63,11 +63,9 @@ const TextInputField: NextPage<TextInputFieldType> = ({
         >
           {label}
         </a>
-        <TextInput
-          property1="Dropdown"
-          showTextInput
-          valueSet="自由記入"
-          showChevronDownIcon={false}
+        <input
+          className="border-primary border-[1px] border-solid [outline:none] bg-white flex-1 rounded-md flex flex-row items-start justify-start p-2 font-body-small text-sm text-secondary"
+          type="text"
         />
       </div>
       {showTextInput && (

@@ -44,7 +44,7 @@ const TextInput: NextPage<TextInputType> = ({
     };
   }, [textInputFlex, textInputWidth]);
 
-  const valueSetStyle: CSSProperties = useMemo(() => {
+  const textStyle: CSSProperties = useMemo(() => {
     return {
       flex: valueSetFlex,
       height: valueSetHeight,
@@ -65,7 +65,7 @@ const TextInput: NextPage<TextInputType> = ({
   return (
     showTextInput && (
       <div
-        className={`flex-1 rounded-md bg-white border-primary border-[1px] border-solid flex flex-row items-start justify-start p-2 gap-1 text-left text-sm text-secondary font-body-small ${className}`}
+        className={`w-[111px] rounded-md bg-white border-primary border-[1px] border-solid box-border flex flex-row items-start justify-start p-2 gap-1 text-left text-sm text-secondary font-body-small ${className}`}
         data-property1={property1}
         style={textInputStyle}
       >
@@ -77,14 +77,14 @@ const TextInput: NextPage<TextInputType> = ({
           src="/eye.svg"
         />
         <div
-          className="flex-1 relative tracking-[-0.02em] leading-[22px]"
-          style={valueSetStyle}
+          className="h-[22px] w-[70px] relative tracking-[-0.02em] leading-[22px] inline-block shrink-0"
+          style={textStyle}
         >
           {valueSet}
         </div>
         {showChevronDownIcon && (
           <Image
-            className="w-[22px] relative h-[22px] overflow-hidden shrink-0"
+            className="h-[22px] w-[22px] relative overflow-hidden shrink-0"
             width={22}
             height={22}
             alt=""
